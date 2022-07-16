@@ -4,12 +4,14 @@ export default function TextForm(props) {
   
   const handleUpClick = ()=>{
         let newText = text.toUpperCase();
-        setText(newText)
+        setText(newText);
+        props.showAlert("Converted to Uppercase!","success")
   }
 
   const handleLowClick = ()=>{
     let newText = text.toLowerCase();
-    setText(newText)
+    setText(newText);
+    props.showAlert("Converted to Lowercase!","success")
 }
   const handleOnChange = (event)=>{
     setText(event.target.value);
@@ -18,7 +20,9 @@ export default function TextForm(props) {
 }
   const handleClearClick = ()=>{
     let newText = '';
-    setText(newText)
+    setText(newText);
+    props.showAlert("Text has been Cleared!","success")
+  
 }
 
   const [text, setText] = useState('');
@@ -31,7 +35,7 @@ export default function TextForm(props) {
         <textarea value = {text} 
             onChange = {handleOnChange} 
             className="form-control" id="textbox" rows="7"
-            style={{ backgroundColor : props.mode ==='dark'?'grey':'white',
+            style={{ backgroundColor : props.mode ==='dark'?'#82878A':'white',
                      color : props.mode ==='dark'?'white':'black' }}>
         </textarea>
         </div>
